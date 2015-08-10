@@ -1,18 +1,10 @@
+{% extends "urlexpander/base.html" %}
 
-<html>
-	<head>
-		<title>URL EXPAND-O-RAMA 2</title>
-	</head>
-<body>
-
-	<div>
+{% block content %}
 		{% for url in urls %}
-		
-		<p><a href="">{{ url.pagetitle }}</a></p>
+		<div class="posts">
+		<p><h2><a href="{% url "url_detail" pk=url.pk %}">{{ url.pagetitle }}</a></h2></p>
 		<p>{{ url }}</p?>
+		</div>
 		{% endfor %}
-	</div>
- 
-</body>
-
-</html>
+{% endblock content %}		
