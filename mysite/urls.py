@@ -17,5 +17,17 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)), #directs anything coming in with admin/ to the admin panel
+    url(r'', include('urlexpander.urls')),    
 ]
+
+
+
+
+""" Remember These
+^ for beginning of the text
+$ for end of text
+\d for a digit
++ to indicate that the previous item should be repeated at least once
+() to capture part of the pattern
+"""
