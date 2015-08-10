@@ -1,0 +1,9 @@
+{% extends "urlexpander/base.html" %}
+
+{% block content %}
+	<h1>Enter a Short URL</h1>
+	<form method="POST" class="post-form">{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit" class="save btn btn-default">EXPAND-O-RAMA</button>
+	</form>
+{% endblock %}
