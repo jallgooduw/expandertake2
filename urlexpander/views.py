@@ -32,3 +32,8 @@ def url_new(request):
         else:
                 form = SubmitForm()
         return render(request, 'urlexpander/url_edit.html', {'form': form})
+
+def url_remove(request, pk):
+	url = get_object_or_404(URLExp, pk=pk)
+	url.delete()
+	return redirect('urlexpander.views.url_list')
