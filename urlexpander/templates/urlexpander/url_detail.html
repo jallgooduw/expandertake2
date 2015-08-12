@@ -6,6 +6,10 @@
 	<p> URL: {{ url }}</p>
 	<p>Status: {{ url.httpstat }}</p>
 	<p>Term: {{ url.finaldestination }}</p>
-	<a class="btn btn-default" href="{% url "url_remove" pk=url.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-</div>
+	</div>
+{% if user.is_authenticated %}	
+<div>	
+<a class="btn btn-default" href="{% url "url_remove" pk=url.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+</div
+{% endif %}>
 {% endblock %}

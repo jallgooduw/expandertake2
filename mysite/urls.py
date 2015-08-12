@@ -15,10 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from django.conf.urls import patterns, include, url
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)), #directs anything coming in with admin/ to the admin panel
-    url(r'', include('urlexpander.urls')),    
+    url(r'^accounts/login/$', auth_views.login),
+    url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}),
+    url(r'',include('urlexpander.urls')),   
 ]
 
 

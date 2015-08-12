@@ -10,15 +10,26 @@
 
 <body>
 <div class="page-header">
-	<a href="{% url "url_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-<h1><a href="/">A list of Links</a></h1>
+<h1><a href="/expander">A list of Links</a></h1>
 </div>
+{% if user.is_authenticated %}
+<div class="page-header">
+	<a href="{% url "url_new" %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+</div>
+
+	<p class="top-menu">Hello {{ user.username }}<small>(<a href="{% url 'django.contrib.auth.views.logout' %}">Log out</a>)</small></p>
+
+{% else %}
+
+<a href="{% url 'django.contrib.auth.views.login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+{% endif %}
+
 <div class="content container">
 <div class="row">
 <div class="col-md-8">
 
-{% block content %}
-{% endblock %}
+	{% block content %}
+	{% endblock %}
 
 </div>
 </div>
