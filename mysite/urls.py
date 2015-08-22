@@ -21,7 +21,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)), #directs anything coming in with admin/ to the admin panel
     url(r'^accounts/login/$', auth_views.login),
-    url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/'}),
+    url(r'^accounts/logout/$', auth_views.logout, {'next_page': '/expander'}),
     url(r'',include('urlexpander.urls')),   
 ]
 

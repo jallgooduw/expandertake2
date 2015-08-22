@@ -38,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'urlexpander',
+    'rest_framework',
+    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -105,6 +107,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/expanderalias/'
+STATIC_URL = '/lab3alias/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_REDIRECT_URL = '/'
+
+AWS_ACCESS_KEY_ID = 'AKIAIO5ZFXU3OR6U2BBQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'jallgood-lab3'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATIC_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME + '/'
